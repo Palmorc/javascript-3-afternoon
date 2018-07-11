@@ -1,4 +1,4 @@
-/* 
+/*
   Once you complete a problem, refresh ./classes.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
@@ -29,9 +29,19 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
-//Code Here
-
-
+class Employee{
+  constructor(first,last,email,age){
+    this.first_name = first
+    this.last_name = last
+    this.email = email
+    this.age = age
+  }
+  makeWidget(){
+    return this.first_name +' '+ this.last_name +' '+ 'Widget'
+  }
+}
+var palmer = new Employee('Palmer','Campell','Email',18)
+console.log(palmer.makeWidget())
 
 ////////// PROBLEM 2 //////////
 
@@ -49,7 +59,21 @@
   Call your new class Manager
 */
 
-//Code Here
+class Manager{
+  constructor(first,last,email,age){
+    this.first_name = first
+    this.last_name = last
+    this.email = email
+    this.age = age
+    this.reports = []
+  }
+  hire(employee){
+    this.reports.push(employee)
+  }
+  fire(index){
+      this.reports.splice(index,1)
+  }
+}
 
 
 
@@ -103,5 +127,3 @@
 */
 
 //Code Here
-
-
