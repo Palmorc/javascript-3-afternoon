@@ -71,7 +71,7 @@ class Manager{
     this.reports.push(employee)
   }
   fire(index){
-      this.reports.splice(index,1)
+    this.reports.splice(index,1)
   }
 }
 
@@ -99,7 +99,39 @@ class Manager{
   Call your new class ProgressiveManager
 */
 
-//Code Here
+class ProgressiveManager{
+  constructor(first,last,email,age){
+    this.first_name = first
+    this.last_name = last
+    this.email = email
+    this.age = age
+    this.reports = []
+    this.title = 'Not a manager'
+    this.bonus = 0
+  }
+  hire(employee){
+    this.reports.push(employee)
+    if(this.reports.length === 0){this.title = 'Not a manager'}
+    else if(this.reports.length >= 1 && this.reports.length<= 3){this.title = 'Barely Manager'}
+    else if(this.reports.length >= 4 && this.reports.length<= 10){this.title = 'Mostly Manager'}
+    else if(this.reports.length >= 11 && this.reports.length<= 50){this.title = 'Manager'}
+    else if(this.reports.length >= 51 && this.reports.length<= 100){this.title = 'Manager Plus'}
+    else if(this.reports.length >= 101){this.title = 'Bestest Manager'}
+  }
+  fire(index){
+    this.bonus += 100
+    this.reports.splice(index,1)
+  }
+}
+
+var sam = new ProgressiveManager('sam','sam','email',64)
+sam.hire("joe")
+sam.hire('alfonso')
+sam.hire('charles')
+sam.hire('luigi')
+sam.fire(2)
+console.log(sam);
+
 
 
 
@@ -126,4 +158,22 @@ class Manager{
         - It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
 
-//Code Here
+class Machine{
+  constructor(){
+  this.widgets_made_count = 0
+  this.wear_and_tear_count = 0
+  this.needs_reboot = false
+  }
+  makeWidgets(num){
+    this.widgets_made_count+=num
+    let wear = this.widgets_made_count /50
+    this.wear_and_tear_count = wear;
+  }
+  fixMachine(){
+    this.needs_reboot = true
+  }
+  reboot(){
+    this.wear_and_tear_count-=10
+    this.needs_reboot = false
+  }
+}
