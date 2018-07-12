@@ -166,14 +166,17 @@ class Machine{
   }
   makeWidgets(num){
     this.widgets_made_count+=num
-    let wear = this.widgets_made_count /50
+    let wear = this.widgets_made_count/50
     this.wear_and_tear_count = wear;
   }
   fixMachine(){
     this.needs_reboot = true
   }
   reboot(){
-    this.wear_and_tear_count-=10
-    this.needs_reboot = false
+    return () => {
+      this.wear_and_tear_count-=10
+      this.needs_reboot = false
+    }
+
   }
 }
