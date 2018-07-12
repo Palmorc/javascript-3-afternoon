@@ -95,7 +95,15 @@ function ingredients(obj){
 */
 
 function largeNumbers( {first,second,third} ){
-  return 
+  if(first<third && first<second){
+    return first
+  }
+  else if (second<first && second<third){
+    return second
+  }
+  else if(third<first && third<second){
+    return third
+  }
 }
 
 
@@ -108,4 +116,14 @@ function largeNumbers( {first,second,third} ){
   Find the longest array and return that array.
 */
 
-//Code Here
+function numberGroups ({a,b,c}){
+  if(a.length>b.length && a.length>c.length){
+    return a
+  }
+  else if (b.length>a.length && b.length>c.length){
+    return b
+  }
+  else if (c.length>a.length && c.length>b.length){
+    return c
+  }
+}
